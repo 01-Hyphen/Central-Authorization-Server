@@ -1,0 +1,51 @@
+<!-- templates/signup.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+    <link rel="stylesheet" th:href="@{/css/style-signup.css}">
+</head>
+<body>
+<div class="login-container">
+    <!-- LEFT: Signup Form -->
+    <div class="left-panel">
+        <div class="signup-card">
+            <h2>Signup</h2>
+            <p>Create your account below</p>
+
+            <form th:action="@{/signup}" th:object="${user}" method="post">
+                <label>First Name</label>
+                <input type="text" th:field="*{firstName}" />
+                <div class="error" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+
+                <label>Last Name</label>
+                <input type="text" th:field="*{lastName}" />
+                <div class="error" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+
+                <label>Username/Email</label>
+                <input type="text" th:field="*{email}" />
+                <div class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+
+                <label>Password</label>
+                <input type="password" th:field="*{password}" />
+                <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+
+                <button class="login-btn" type="submit">Create Account</button>
+            </form>
+            <p>Already have an account? <a th:href="@{/login}">Login</a></p>
+        </div>
+    </div>
+
+    <!-- RIGHT: Welcome -->
+    <div class="right-panel">
+        <div class="right-panel-welcome">
+            <h1 class="welcome-h1">Welcome to the Community!</h1>
+            <button class="skip-btn">Made with ⚙️ by Hyphen01</button>
+        </div>
+<!--        <h1 class="welcome">Welcome to the Community!</h1>-->
+<!--        <button class="skip-btn">Made with ⚙️ by Hyphen01</button>-->
+    </div>
+</div>
+</body>
+</html>

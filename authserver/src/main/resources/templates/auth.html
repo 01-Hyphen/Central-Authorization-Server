@@ -1,0 +1,100 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>IAMLogin</title>-->
+<!--    <link rel="stylesheet" th:href="@{/css/style.css}">-->
+<!--    <style>-->
+<!--        .hidden { display: none; }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="login-container">-->
+<!--    &lt;!&ndash; LEFT PANEL &ndash;&gt;-->
+<!--    <div class="left-panel">-->
+<!--        &lt;!&ndash; Default: Welcome &ndash;&gt;-->
+<!--        <div id="welcome-text">-->
+<!--            <h1>Welcome Back :)</h1>-->
+<!--            <button class="skip-btn">Made with ⚙️ by Hyphen01</button>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; Signup Form (Initially hidden) &ndash;&gt;-->
+<!--        <div class="signup-card hidden" id="signup-form">-->
+<!--            <h2>Signup</h2>-->
+<!--            <p>Create your account below</p>-->
+<!--            <form th:action="@{/signup}" method="post">-->
+<!--                <label>First Name</label>-->
+<!--                <input type="text" name="firstName" required />-->
+
+<!--                <label>Last Name</label>-->
+<!--                <input type="text" name="lastName" required />-->
+
+<!--                <label>Username/Email</label>-->
+<!--                <input type="text" name="email" required />-->
+
+<!--                <label>Password</label>-->
+<!--                <input type="password" name="password" required />-->
+
+<!--                <button class="login-btn" type="submit">Create Account</button>-->
+<!--            </form>-->
+<!--            <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; RIGHT PANEL &ndash;&gt;-->
+<!--    <div class="right-panel">-->
+<!--        &lt;!&ndash; Login Form (default) &ndash;&gt;-->
+<!--        <div class="login-card" id="login-form">-->
+<!--            <h2>Login</h2>-->
+<!--            <p>Glad you're back!</p>-->
+
+<!--            <div th:if="${param.error}" class="error">Invalid username or password</div>-->
+<!--            <div th:if="${param.logout}" class="success">You have been logged out</div>-->
+
+<!--            <form th:action="@{/login}" method="post">-->
+<!--                <label>Username</label>-->
+<!--                <input type="text" name="username" required />-->
+
+<!--                <label>Password</label>-->
+<!--                <input type="password" name="password" required />-->
+
+<!--                <div class="options">-->
+<!--                    <a href="#">Forgot password?</a>-->
+<!--                </div>-->
+
+<!--                <button class="login-btn" type="submit">Login</button>-->
+
+<!--                <p>Don't have an account? <a href="#" onclick="showSignup()">Signup</a></p>-->
+<!--                <div class="links">-->
+<!--                    <a href="#">Terms & Conditions</a> |-->
+<!--                    <a href="#">Support</a> |-->
+<!--                    <a href="#">Customer Care</a>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; Signup Welcome (Initially hidden) &ndash;&gt;-->
+<!--        <div class="hidden" id="signup-welcome">-->
+<!--            <h1>Welcome to the Community!</h1>-->
+<!--            <button class="skip-btn">Made with ⚙️ by Hyphen01</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<script>-->
+<!--    function showSignup() {-->
+<!--        document.getElementById('login-form').classList.add('hidden');-->
+<!--        document.getElementById('signup-welcome').classList.remove('hidden');-->
+<!--        document.getElementById('welcome-text').classList.add('hidden');-->
+<!--        document.getElementById('signup-form').classList.remove('hidden');-->
+<!--    }-->
+
+<!--    function showLogin() {-->
+<!--        document.getElementById('login-form').classList.remove('hidden');-->
+<!--        document.getElementById('signup-welcome').classList.add('hidden');-->
+<!--        document.getElementById('welcome-text').classList.remove('hidden');-->
+<!--        document.getElementById('signup-form').classList.add('hidden');-->
+<!--    }-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
