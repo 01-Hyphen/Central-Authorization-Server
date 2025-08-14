@@ -118,3 +118,8 @@ Browser login redirects with client apps
 
 UI-based form login and registration
 
+14-08-2025
+Added roles selection for user while registration. He can select the checkbox to have multiple roles assigned.
+Also using kafka, on user registration auth server will emmit an event so that it can be consumed by other client app to get user related data persist in their db.
+Needed -- kafka message broker as running, with kafka binder, spring stream dependency in place.
+
