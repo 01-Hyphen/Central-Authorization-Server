@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.List;
+
 @Controller
 public class LoginController {
 
@@ -38,17 +40,28 @@ public class LoginController {
     @GetMapping("/signup")
     public String signup(Model model) {
         model.addAttribute("user", new UserObjDto());
+        model.addAttribute("roles", List.of("USER", "DRIVER", "RIDER"));
         return "signup";
     }
     @PostMapping("/signup")
     public String processSignup(@Valid @ModelAttribute("user") UserObjDto userDto,
                                 BindingResult result,
-                                RedirectAttributes redirectAttributes) {
+                                RedirectAttributes redirectAttributes,
+                                Model model,
+                                @RequestParam(value = "roles", required = false) List<String> roles) {
+
+        if (roles == null || roles.isEmpty()) {
+            // Add error message and re-render signup page
+            model.addAttribute("roles", List.of("USER", "DRIVER", "RIDER"));
+            model.addAttribute("errorMessage", "Please select at least one role.");
+            return "signup";
+        }
         if (result.hasErrors()) {
 
             return "signup";
         }
-        authService.createUser(userDto);
+        System.out.println("Selected roles: " + roles);
+        authService.createUser(userDto,roles);
         redirectAttributes.addAttribute("signupSuccess", true);
         return "redirect:/login";
     }

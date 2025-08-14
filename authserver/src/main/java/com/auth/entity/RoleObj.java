@@ -11,10 +11,15 @@ import org.springframework.security.authorization.AuthorizationManager;
 import org.springframework.security.core.GrantedAuthority;
 @Entity
 @Getter@Setter
+
 public class RoleObj implements GrantedAuthority {
 
    public RoleObj(){
 
+    }
+
+    public RoleObj(String roleName){
+        this.roleName = roleName;
     }
 
     @Id
