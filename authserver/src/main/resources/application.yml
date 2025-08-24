@@ -4,6 +4,17 @@ server:
       timeout: 30m
 
 spring:
+  cloud:
+    stream:
+      function:
+        definition:
+    bindings:
+      userRegistration-out-0:
+        destination: "user-registration"
+    kafka:
+      binder:
+        brokers:
+          - localhost:9092
   application:
     name: authserver
   datasource:
@@ -21,4 +32,5 @@ logging:
   level:
     org:
       springframework:
-        security: TRACE
+        cloud:
+          stream: TRACE
