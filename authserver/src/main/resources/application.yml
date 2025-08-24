@@ -1,4 +1,5 @@
 server:
+  port: 9191
   servlet:
     session:
       timeout: 30m

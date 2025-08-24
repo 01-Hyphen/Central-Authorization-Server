@@ -125,7 +125,7 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 // Form login handles the redirect to the login page from the
                 // authorization server filter chain
-                .formLogin(form->form.loginPage("/login").permitAll()
+                .formLogin(form->form.loginPage("/ ").permitAll()
                         .loginProcessingUrl("/login")
                         .failureUrl("/login?error=true")
 
